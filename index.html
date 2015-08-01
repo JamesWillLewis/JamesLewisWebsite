@@ -77,7 +77,7 @@
                         <h1 class="brand-heading">Hello.</h1>
                         <p class="intro-text">I am James. I'm from 
                             <a href="https://en.wikipedia.org/wiki/Cape_Town">Cape Town</a>, <br>
-                            and I'm passionate about technology.
+                            and I'm passionate about science, <br> technology and engineering.
                         </p>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
@@ -93,9 +93,22 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About Me</h2>
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
+                <p>
+                    I am a <span id="my-age"></span> year old residing in Cape Town, South Africa. 
+                    I work as a software development engineer for <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services">
+                        Amazon Web Services
+                    </a>, and more specifically, the <a href="https://en.wikipedia.org/wiki/Amazon_Elastic_Compute_Cloud">EC2</a> development
+                    centre based in <a href="https://en.wikipedia.org/wiki/Cape_Town">Cape Town</a>
+                </p>
+                <h3> Education </h3>
+                <p>
+                    I studied a BSc at <a href="https://en.wikipedia.org/wiki/University_of_Cape_Town">UCT</a>, majoring in 
+                    Computer Science and Computer Engineering, followed by a BSc honours in Computer Science. 
+                </p>    
+                <h3>Interests</h3>
+                <p>
+                    I have a broad range of interests; however, my passion is in technology, science and engineering. I'm particularly interested in the application of technology in solving real world problems: from the design and engineering of software, to the end-user experience. I’m fascinated with the profound impact that technology has had on the real world, as a result of technology's continuous innovation and evolution.
+                </p>
             </div>
         </div>
         <a href="#work" class="btn btn-circle page-scroll">
@@ -109,8 +122,14 @@
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Work</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                    <p>
+                    I work as a software development engineer for <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services">
+                        Amazon Web Services</a>.<br>
+                    AWS is a broad collection of remote computing services that constitute a cloud-compute platform
+                    offered by <a href="https://en.wikipedia.org/wiki/Amazon.com">Amazon.com</a>.
+                    I work within the division that develops and maintains <a href="https://en.wikipedia.org/wiki/Amazon_Elastic_Compute_Cloud">Elastic Compute Cloud</a>: a highly scalable, feature-rich service that offers remote compute infrastructure in the cloud.
+                    EC2 currently boasts the world's largest total compute capacity, enormous breadth of features, and high availability.   
+                    </p>
                 </div>
             </div>
             <a href="#contact" class="btn btn-circle page-scroll">
@@ -155,7 +174,8 @@
                       <label for="comment">Comment</label>
                       <textarea class="form-control" rows="5" id="comment" placeholder="Write your message here"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-default">Send</button>
+                    <button type="button" class="btn btn-default" id="sendMessageButton" 
+                        data-loading-text="Sending..." data-complete-text="Message sent">Send</button>
                 </form>
 
             </div>

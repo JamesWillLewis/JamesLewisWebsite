@@ -176,3 +176,84 @@ function init() {
         icon: image
     });
 }
+
+/* 
+ * Calculate age based on current date and DOB
+ */
+function calculateAge(birthMonth, birthDay, birthYear)
+{
+  todayDate = new Date();
+  todayYear = todayDate.getFullYear();
+  todayMonth = todayDate.getMonth();
+  todayDay = todayDate.getDate();
+  age = todayYear - birthYear; 
+
+  if (todayMonth < birthMonth - 1)
+  {
+    age--;
+  }
+
+  if (birthMonth - 1 == todayMonth && todayDay < birthDay)
+  {
+    age--;
+  }
+  return age;
+}
+
+var myAge = {
+    day   : 10,
+    month : 2,
+    year  : 1991
+};
+
+$(document).ready(function() {
+    // Set event binding for when user clicks 'submit' button to send a message
+    $('#sendMessageButton').click(submitMessage);
+    console.log("Added sendMessageButton listener");
+
+    // Set event binding to reset the send-message button text when user selects comment box 
+    $('#comment').focus(function() {
+        $('#sendMessageButton').button('reset');
+    });
+ 
+    $('#my-age').text(calculateAge(myAge.month, myAge.day, myAge.year));
+});
+
+function submitMessage() {
+    var $btn = $(this).button('loading');
+    console.log("WorkDay");
+
+    var emailAddress = $('#email').val();
+    var comment = $('#comment').val();
+
+    var message = new Object();
+    message.emailAddress = emailAddress;
+    message.comment = comment;
+
+    // Convert to JSON string
+    var jsonDataStr = JSON.stringify(message);
+    console.log('jsonDataStr' + jsonDataStr);
+
+    // Using AWS Lambda
+    var serviceUrl = "https://hho77v9scb.execute-api.us-east-1.amazonaws.com/prod/message";
+    $.ajax({
+        type : "POST",
+        url : serviceUrl,
+        contentType : "application/json",
+        data : jsonDataStr,
+        success : function(result) {
+            //getWorkDays();
+            //initDefaults();
+            //$('#successmsg').show();
+            $btn.button('complete');
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            console.log("jqXHR statusCode" + jqXHR.statusCode());
+            console.log("textStatus " + textStatus);
+            console.log("errorThrown " + errorThrown);
+        }
+    });
+}
+
+
+
